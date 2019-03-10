@@ -99,3 +99,5 @@ Temporary Items
 
 .idea
 .vscode
+.properties
+application.properties
