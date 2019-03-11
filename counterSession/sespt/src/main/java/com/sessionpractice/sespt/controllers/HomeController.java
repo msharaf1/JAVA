@@ -10,15 +10,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HomeController {
     
+    //count page visits using session.
     @RequestMapping("/")
     public String countPageVisit(HttpSession sessoin){
         Integer count = 0;
         count = (Integer) sessoin.getAttribute("count");
         if(count == null || count < 1){
-            // count = new Integer(1);
             count = 1;
         } else{
-            // count = new Integer(count.intValue()+1);
+            
             count = count.intValue()+1;
         }
         
@@ -26,14 +26,6 @@ public class HomeController {
         return count.toString();
     }
 
-    /*
-    	Integer count = (Integer) session.getAttribute("count");
-		if(count == null) {
-			count = new Integer(1);
-		}else {
-			count = new Integer(count.intValue()+1);
-		}
-        session.setAttribute("count", count);
-        */
+
 
 }
