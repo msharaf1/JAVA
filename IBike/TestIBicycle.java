@@ -1,5 +1,34 @@
 public class TestIBicycle {
     public static void main(String[] args){
+        Bicycle aBike = new Bicycle();
+        
+        System.out.println(aBike.myConstant);
+        System.out.println(Bicycle.myConstant);
+
+        aBike.sayHello();
+        aBike.staticMethod();
+        Bicycle.staticMethod();
+
+        aBike.speedUp(10);
+        aBike.speedUp(10);
+        aBike.applyBrakes(5);
+        System.out.println(aBike.getSpeed());
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+        /*
         Bicycle jBike = new Bicycle();
         // jBike.weight = 39;
         // jBike.speed = 25;
@@ -20,7 +49,7 @@ public class TestIBicycle {
             "Total Amount: $" +jBike.getTotal()
         );
         
-
+*/
 
     }
 }

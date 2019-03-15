@@ -1,4 +1,54 @@
 public class Bicycle implements IBicycle {
+    private int speed;
+    public Bicycle(){
+        speed = 0;
+    };
+
+    public static void staticMethod(){
+        IBicycle.staticMethod();;
+    }
+
+    public void speedUp(int increment){
+        speed += increment;
+    }
+
+    public void applyBrakes(int decrement){
+        speed -= decrement;
+    }
+
+    public int getSpeed(){
+        return speed;
+    }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    /*
     public int speed;
     public int brakes;
     public double price;
@@ -48,5 +98,6 @@ public class Bicycle implements IBicycle {
     // public int weight = 39;
     public static int weight = 25;
     public static int wheels = 4;
+*/
 
 }
