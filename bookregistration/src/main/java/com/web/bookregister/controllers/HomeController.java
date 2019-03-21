@@ -16,12 +16,20 @@ import com.web.bookregister.models.BookModel;
 @Controller
 public class HomeController {
 	
-	@GetMapping("/registered")
+
+
+	@GetMapping("/")
 	public String mainPage() {
 		
+		return "redirect:/books";
+	}
+
+	@GetMapping("/registered")
+	public String regBook(){
 		return "registeredBooks";
 	}
-	
+
+
 	@GetMapping("/books")
 	public String getUsers(@ModelAttribute("book") BookModel books, HttpSession session) {
 		
@@ -30,27 +38,20 @@ public class HomeController {
 	
 	@PostMapping("/books")
 	public String registerBooks(@Valid @ModelAttribute("book") BookModel books, BindingResult result, HttpSession session, 
-			String bookAuthor, String bookName, String published, long id) {
+			String bookAuthor, String bookName, String published) {
 		
 		if(result.hasErrors()) {
 			return "redirect:/books";
 		}else {
-			
-			books.setId(id);
 			books.setBookName(bookName);
 			books.setBookAuthor(bookAuthor);
 			books.setPublished(published);
+
+			session.setAttribute("bookName", bookName);
+			session.setAttribute("bookAuthor", bookAuthor);
+			session.setAttribute("published", published);
 		}
-		
-		System.out.println(books.getBookAuthor() + books.getBookName() + books.getId() + books.getPublished());
-		
-		session.setAttribute("bookName", bookName);
-		session.setAttribute("bookAuthor", bookAuthor);
-		session.setAttribute("published", published);
-		session.setAttribute("id", id);
 
-
-		
 		return "redirect:/registered";
 	}
 

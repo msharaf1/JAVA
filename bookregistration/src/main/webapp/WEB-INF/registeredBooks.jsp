@@ -14,7 +14,6 @@
 	<div class="container">
 		<div class="viewForm">
 		<h1>Successfully Registered the following Book:</h1>
-			<p>Book ID: <c:out value="${id }" /> </p>
 			<p>Book Name: <c:out value="${bookName}" /> </p>
 			<p>Book Author <c:out value="${bookAuthor}" /> </p>
 			<p>Published By:  <c:out value="${published}" /> </p>

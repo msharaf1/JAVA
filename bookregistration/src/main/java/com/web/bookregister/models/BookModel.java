@@ -1,22 +1,15 @@
 package com.web.bookregister.models;
 
-//import javax.validation.Valid;
+import javax.validation.Valid;
 
 public class BookModel {
-	private long id;
+	
 	private String bookName;
 	private String bookAuthor;
 	private String published;
 	
 	public BookModel() {}
 
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
 
 	public String getBookName() {
 		return bookName;

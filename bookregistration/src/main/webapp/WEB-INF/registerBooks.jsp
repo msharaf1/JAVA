@@ -16,16 +16,8 @@
 	</div>
 	<div class="bodyConatiner">
 		<h1>Please register your book!</h1>
-			<c:out value="${bookName}"> BookName</c:out>
 			
-			<form:form action="/books" method="POST" modelAttribute="book">
-				
-				
-				<form:label path="id">Book ID: </form:label>
-				<form:errors path="id"></form:errors>
-				<form:input path="id"></form:input>
-				
-				
+			<form:form action="/books" method="POST" modelAttribute="book">	
 				<form:label path="bookName">Book Name: </form:label>
 				<form:errors path="bookName"></form:errors>
 				<form:input path="bookName"></form:input>
@@ -37,9 +29,7 @@
 				<form:label path="published">Published By: </form:label>
 				<form:errors path="published"></form:errors>
 				<form:input path="published"></form:input>
-				
-				
-				
+		
 
 				<br /><br/>
 				<input type="submit" value="registerBook">
