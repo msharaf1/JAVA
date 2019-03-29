@@ -1,8 +1,10 @@
 package com.cbooks.science.controllers;
 
+import java.awt.print.Book;
 import java.util.List;
 
 import com.cbooks.science.models.BookModel;
+import com.cbooks.science.repositories.BookRepo;
 import com.cbooks.science.services.BookService;
 
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,9 +17,11 @@ import org.springframework.web.bind.annotation.RestController;
 public class BooksAPI {
 
     private final BookService bookService;
-    
-    public BooksAPI(BookService bookService){
+    private BookRepo bR;
+    ;
+    public BooksAPI(BookService bookService, BookRepo bR){
         this.bookService = bookService;
+        this.bR = bR;
     }
     @RequestMapping("/api/books")
     public List<BookModel> index() {
@@ -36,26 +40,21 @@ public class BooksAPI {
         return book;
     }
 
-    // @RequestMapping(value = "/api/books/{id}edit", method = RequestMethod.PUT)
-    // public BookModel updateBook(@PathVariable("id") Long id, 
-    // @RequestParam(value="title") String title, 
-    // @RequestParam(value="description") String desc,
-    // @RequestParam(value="language") String lang, @RequestParam(value="pages") Integer numOfPages){
-    //     // BookModel bookModel = bookService.findBook(id);
-        
-    //     // bookModel.setTitle(title);
-    //     // bookModel.setDescription(desc);
-    //     // bookModel.setLanguage(lang);
-    //     // bookModel.setNumberOfPages(numOfPages);
-    //     // return bookModel;
-
-    //     BookModel book = bookService.updateBook(id, title, desc, lang, numOfPages);
-    //     return book;
-    // }
 
     @RequestMapping(value="/api/books/{id}/delete", method = RequestMethod.DELETE)
     public void deleteBook(@PathVariable("id") Long id){
         bookService.deleteBook(id);
     }
 
+
+
+    @RequestMapping(value="/api/books/{id}/update", method = RequestMethod.PUT)
+    public void updatedBook(@PathVariable("id") Long id, BookModel book
+        )
+    {
+        BookModel bId = bookService.findBook(id);
+        if(bId != null){
+            bR.save(book);
+        }
+    }
 }

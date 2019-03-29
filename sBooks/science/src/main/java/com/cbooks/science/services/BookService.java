@@ -39,9 +39,9 @@ public class BookService {
     
 
 
-    // public BookModel updatedBook(BookModel ubook) {
-    //     return bookRepo.save(ubook);
-    // }
+    public void updatedBook(Long id) {
+        createBook(id);
+    }
 	// public BookModel updateBook(Long id, String title, String desc, String lang, Integer numOfPages) {
     //     id = updatedBook();
         

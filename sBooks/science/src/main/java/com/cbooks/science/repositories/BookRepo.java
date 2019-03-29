@@ -32,6 +32,8 @@ public interface BookRepo extends CrudRepository<BookModel, Long> {
 
     Long deleteById(long id);
 
+    // Long updateById(Long id);
+
     
 
 }
