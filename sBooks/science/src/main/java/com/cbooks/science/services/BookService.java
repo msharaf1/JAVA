@@ -33,6 +33,11 @@ public class BookService {
             return null;
         }
     }
+	public void deleteBook(Long id) {
+        bookRepo.deleteById(id);
+	}
+    
+
 
     // public BookModel updatedBook(BookModel ubook) {
     //     return bookRepo.save(ubook);

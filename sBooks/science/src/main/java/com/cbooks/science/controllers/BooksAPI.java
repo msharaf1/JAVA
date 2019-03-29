@@ -36,21 +36,26 @@ public class BooksAPI {
         return book;
     }
 
-    @RequestMapping(value = "/api/books/{id}", method = RequestMethod.PUT)
-    public BookModel updateBook(@PathVariable("id") Long id, 
-    @RequestParam(value="title") String title, 
-    @RequestParam(value="description") String desc,
-    @RequestParam(value="language") String lang, @RequestParam(value="pages") Integer numOfPages){
-        // BookModel bookModel = bookService.findBook(id);
+    // @RequestMapping(value = "/api/books/{id}edit", method = RequestMethod.PUT)
+    // public BookModel updateBook(@PathVariable("id") Long id, 
+    // @RequestParam(value="title") String title, 
+    // @RequestParam(value="description") String desc,
+    // @RequestParam(value="language") String lang, @RequestParam(value="pages") Integer numOfPages){
+    //     // BookModel bookModel = bookService.findBook(id);
         
-        // bookModel.setTitle(title);
-        // bookModel.setDescription(desc);
-        // bookModel.setLanguage(lang);
-        // bookModel.setNumberOfPages(numOfPages);
-        // return bookModel;
+    //     // bookModel.setTitle(title);
+    //     // bookModel.setDescription(desc);
+    //     // bookModel.setLanguage(lang);
+    //     // bookModel.setNumberOfPages(numOfPages);
+    //     // return bookModel;
 
-        BookModel book = bookService.updateBook(id, title, desc, lang, numOfPages);
-        return book;
+    //     BookModel book = bookService.updateBook(id, title, desc, lang, numOfPages);
+    //     return book;
+    // }
+
+    @RequestMapping(value="/api/books/{id}/delete", method = RequestMethod.DELETE)
+    public void deleteBook(@PathVariable("id") Long id){
+        bookService.deleteBook(id);
     }
 
 }

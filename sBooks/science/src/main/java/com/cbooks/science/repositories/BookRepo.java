@@ -1,5 +1,6 @@
 package com.cbooks.science.repositories;
 
+import java.lang.StackWalker.Option;
 import java.util.List;
 import java.util.Optional;
 
@@ -17,16 +18,20 @@ import org.springframework.stereotype.Repository;
 public interface BookRepo extends CrudRepository<BookModel, Long> {
     // this method retrieves all the books from the database
     List<BookModel> findAll();
+    // List<BookModel> deleteBook
+    Optional<BookModel> findById(Long id);
 
     // this method find a book by their description
     List<BookModel> findByDescriptionContaining(String search);
 
     // this method counts how many titles contain a certain string
-    Long countByTitleContaining(String search);
+    String countByTitleContaining(String search);
 
     // this method deletes a book that starts with a specific title
-    Long deleteByTitleStartingWith(String search);
+    String deleteByTitleStartingWith(String search);
 
-    Optional<BookModel> findById(Long id);
+    Long deleteById(long id);
+
     
+
 }
