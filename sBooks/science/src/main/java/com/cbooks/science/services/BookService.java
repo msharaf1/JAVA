@@ -37,10 +37,8 @@ public class BookService {
         bookRepo.deleteById(id);
 	}
     
-
-
-    public void updatedBook(Long id) {
-        createBook(id);
+    public void updatedBook(BookModel book) {
+        bookRepo.save(book);
     }
 	// public BookModel updateBook(Long id, String title, String desc, String lang, Integer numOfPages) {
     //     id = updatedBook();

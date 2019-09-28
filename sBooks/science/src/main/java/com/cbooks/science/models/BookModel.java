@@ -1,5 +1,6 @@
 package com.cbooks.science.models;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 import java.util.Date;
@@ -13,6 +14,8 @@ import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.Size;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -31,6 +34,15 @@ public class BookModel {
     private String language;
     @Min(100)
     private Integer numberOfPages;
+
+    @JsonFormat(pattern = "yyyy/MM/dd")
+    private Date published;
+
+    //LocalDate
+
+    @JsonFormat(pattern = "yyyy/MM/dd")
+    private Date rePrinted;
+
     // This will not allow the createdAt column to be updated after creation
     @Column(updatable=false)
     @DateTimeFormat(pattern="yyyy-MM-dd")
@@ -40,11 +52,13 @@ public class BookModel {
     
     public BookModel() {
     }
-    public BookModel(String title, String desc, String lang, int pages) {
+    public BookModel(String title, String desc, String lang, int pages, Date published, Date rePrinted) {
         this.title = title;
         this.description = desc;
         this.language = lang;
         this.numberOfPages = pages;
+        this.rePrinted = rePrinted;
+        this.published = published;
     }
     
     // other getters and setters removed for brevity
@@ -114,6 +128,24 @@ public class BookModel {
         this.updatedAt = updatedAt;
     }
 
+
+    public Date getPublished() {
+        return this.published;
+    }
+
+    public void setPublished(Date published) {
+        this.published = published;
+    }
+
+
+
+    public Date getRePrinted() {
+        return this.rePrinted;
+    }
+
+    public void setRePrinted(Date rePrinted) {
+        this.rePrinted = rePrinted;
+    }
 
 
 

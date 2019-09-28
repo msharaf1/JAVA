@@ -1,6 +1,8 @@
 package com.cbooks.science.controllers;
 
 import java.awt.print.Book;
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 import com.cbooks.science.models.BookModel;
@@ -29,8 +31,14 @@ public class BooksAPI {
     }
     
     @RequestMapping(value="/api/books", method=RequestMethod.POST)
-    public BookModel create(@RequestParam(value="title") String title, @RequestParam(value="description") String desc, @RequestParam(value="language") String lang, @RequestParam(value="pages") Integer numOfPages) {
-        BookModel addBooks = new BookModel(title, desc, lang, numOfPages);
+    public BookModel create(@RequestParam(value="title") String title, 
+                            @RequestParam(value="description") String desc, 
+                            @RequestParam(value="language") String lang, 
+                            @RequestParam(value="pages") Integer numOfPages,
+                            @RequestParam(value="published") Date published,
+                            @RequestParam(value="rePrinted") Date rePrinted
+                            ) {
+        BookModel addBooks = new BookModel(title, desc, lang, numOfPages, published, rePrinted);
         return bookService.createBook(addBooks);
     }
     
