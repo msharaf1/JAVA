@@ -28,6 +28,10 @@ public class BookModel {
     private Long id;
     @Size(min = 5, max = 200)
     private String title;
+
+    @Size(min = 5, max = 200, message = "Please type between 5 to 200 characters")
+    private String author;
+
     @Size(min = 5, max = 200)
     private String description;
     @Size(min = 3, max = 40)
@@ -52,8 +56,9 @@ public class BookModel {
     
     public BookModel() {
     }
-    public BookModel(String title, String desc, String lang, int pages, Date published, Date rePrinted) {
+    public BookModel(String title, String author, String desc, String lang, int pages, Date published, Date rePrinted) {
         this.title = title;
+        this.author = author;
         this.description = desc;
         this.language = lang;
         this.numberOfPages = pages;
@@ -147,6 +152,14 @@ public class BookModel {
         this.rePrinted = rePrinted;
     }
 
+
+    public String getAuthor() {
+        return this.author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
 
 
 }

@@ -1,0 +1,3 @@
+public enum EnuWeekDays {
+    SUNDAY, SATURDAY, MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY;
+}

@@ -1,3 +1,5 @@
+
+
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>  
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 
@@ -11,44 +13,20 @@
     <title>Book Library</title>
 </head>
 <body>
-    <h1>Books List</h1>
-    <table>
-    <thead>
-        <tr>
-            <td>Title</td>
-            <td>Author</td>
-            <td>Description</td>
-            <td>Language</td>
-            <td>NumberOfPages</td>
-            <td>Published</td>
-            <td>RePrinted</td>
-        </tr>
-    </thead>
-    <tbody>
-        <c:forEach items="${bookList}" var = "book">
-        <tr>
-            <td> <c:out value="${book.title}" /> </td>
-            <td> <c:out value="${book.author}" /> </td>
-            <td> <c:out value="${book.description}"/> </td>
-            <td> <c:out value="${book.language}"/> </td>
-            <td> <c:out value="${book.numberOfPages}"/> </td>
-            <td> <c:out value="${book.published}"/> </td>
-            <td> <c:out value="${book.rePrinted}"/> </td>
-        </tr>
-        </c:forEach>
-    </tbody>
-</table>
-        
+    <h1> <c:out value="${bookObj.title}"/> </h1>
 
 
 
-
-
-<%-- <form:form action="/books" method="post" modelAttribute="book">
+<form:form action="/home/new" method="POST" modelAttribute="bookObj">
     <p>
         <form:label path="title">Title</form:label>
         <form:errors path="title"/>
         <form:input path="title"/>
+    </p>
+        <p>
+        <form:label path="author">Author</form:label>
+        <form:errors path="author"/>
+        <form:input path="author"/>
     </p>
     <p>
         <form:label path="description">Description</form:label>
@@ -64,9 +42,19 @@
         <form:label path="numberOfPages">Pages</form:label>
         <form:errors path="numberOfPages"/>     
         <form:input type="number" path="numberOfPages"/>
-    </p>    
+    </p>
+        <p>
+        <form:label path="published">Date</form:label>
+        <form:errors path="published"/>     
+        <form:input path="published" />
+    </p>  
+    <p>
+    <form:label path="rePrinted">Pages</form:label>
+    <form:errors path="rePrinted"/>     
+    <form:input  path="rePrinted"/>
+</p>      
     <input type="submit" value="Submit"/>
-</form:form>  --%>
+</form:form> 
 </body>
 </html>
 

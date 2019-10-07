@@ -33,12 +33,13 @@ public class BooksAPI {
     @RequestMapping(value="/api/books", method=RequestMethod.POST)
     public BookModel create(@RequestParam(value="title") String title, 
                             @RequestParam(value="description") String desc, 
+                            @RequestParam(value="author") String author, 
                             @RequestParam(value="language") String lang, 
                             @RequestParam(value="pages") Integer numOfPages,
                             @RequestParam(value="published") Date published,
                             @RequestParam(value="rePrinted") Date rePrinted
                             ) {
-        BookModel addBooks = new BookModel(title, desc, lang, numOfPages, published, rePrinted);
+        BookModel addBooks = new BookModel(title, desc, lang, numOfPages, published, rePrinted, author);
         return bookService.createBook(addBooks);
     }
     
